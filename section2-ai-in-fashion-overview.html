@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 2: AI Just Walked Into Fashion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2A0B47;
+    --purple: #5B1E9E;
+    --violet: #7B2FBE;
+    --gold: #E9A23B;
+    --paper: #FFFFFF;
+    --mist: #F6F2FB;
+    --line: #E8DFF5;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.7;
+    font-size: 18px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  /* Hero */
+  .hero { padding: 68px 0 44px; text-align: center; }
+  .section-badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: #fff;
+    background: linear-gradient(90deg, var(--purple), var(--violet));
+    border-radius: 999px;
+    padding: 9px 22px;
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif; font-weight: 900;
+    font-size: clamp(36px, 6vw, 58px);
+    line-height: 1.08; letter-spacing: -0.015em;
+    margin-bottom: 20px;
+  }
+  h1 em { font-style: italic; color: var(--violet); }
+  .lede { font-size: 20px; max-width: 620px; margin: 0 auto; color: #4A3865; }
+  .readtime {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px; font-weight: 500;
+    color: var(--purple); background: var(--mist);
+    border: 1px solid var(--line); border-radius: 999px;
+    padding: 7px 16px;
+  }
+
+  /* Sections */
+  section { padding: 30px 0; }
+  h2 {
+    font-family: 'Fraunces', serif; font-weight: 700;
+    font-size: clamp(26px, 4vw, 34px);
+    line-height: 1.2; margin-bottom: 18px;
+  }
+  p + p { margin-top: 18px; }
+  .prose { max-width: 680px; margin: 0 auto; }
+  strong { color: var(--purple); }
+  .pullquote {
+    max-width: 680px; margin: 38px auto;
+    padding: 6px 0 6px 26px;
+    border-left: 4px solid var(--gold);
+    font-family: 'Fraunces', serif;
+    font-size: clamp(21px, 3vw, 26px);
+    font-weight: 600; line-height: 1.4; color: var(--purple);
+  }
+
+  /* Fade */
+  .fade { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .fade.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } }
+
+  /* Then/Now flip cards */
+  .flips {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    gap: 14px; max-width: 780px; margin: 8px auto 0;
+  }
+  .flip {
+    border: 1.5px solid var(--line);
+    border-radius: 18px;
+    padding: 22px 20px;
+    background: #fff;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    transition: transform 0.18s, border-color 0.2s, box-shadow 0.2s, background 0.3s;
+  }
+  .flip:hover { transform: translateY(-3px); border-color: var(--violet); box-shadow: 0 10px 26px rgba(91,30,158,0.10); }
+  .flip:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+  .flip .fe { font-size: 28px; display: block; margin-bottom: 10px; }
+  .flip .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    display: inline-block; margin-bottom: 8px;
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .flip .tag.then { background: var(--mist); color: #6B5A85; }
+  .flip .tag.now { background: var(--gold); color: #fff; }
+  .flip h3 {
+    font-family: 'Fraunces', serif; font-weight: 700;
+    font-size: 18.5px; margin-bottom: 6px; color: var(--purple);
+  }
+  .flip p { font-size: 14.5px; line-height: 1.6; color: #4A3865; }
+  .flip.flipped { background: #FBF4E8; border-color: var(--gold); }
+  .flip .hint {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; color: var(--violet);
+    display: block; margin-top: 10px;
+  }
+  .flip.flipped .hint { color: #B5761F; }
+
+  /* Closer */
+  .closer { text-align: center; padding: 50px 0 78px; }
+  .closer .big {
+    font-family: 'Fraunces', serif; font-weight: 900;
+    font-size: clamp(27px, 4.4vw, 40px);
+    line-height: 1.15; max-width: 640px; margin: 0 auto 18px;
+  }
+  .closer .big em { font-style: italic; color: var(--violet); }
+  .closer p { max-width: 540px; margin: 0 auto; color: #4A3865; }
+  .divider { width: 64px; height: 4px; border-radius: 2px; background: var(--gold); margin: 0 auto 28px; }
+
+  @media (max-width: 600px) {
+    body { font-size: 17px; }
+    .hero { padding: 50px 0 32px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <div class="section-badge fade">Section 2 &middot; AI in Fashion</div>
+  <h1 class="fade">The Newest Hire in Fashion <em>Isn't Human</em></h1>
+  <p class="lede fade">You just met the four career paths of the fashion world. Now meet the technology that is reshaping every single one of them: artificial intelligence.</p>
+  <div class="readtime fade">&#9201; 2 minute read</div>
+</header>
+
+<section class="wrap">
+  <div class="prose fade">
+    <h2>Something big just changed</h2>
+    <p>For the whole first section of this series, we explored fashion the way it has worked for decades: designers sketching, strategists deciding, forecasters predicting, and makers building. All of that is still true. But in the last few years, a new teammate showed up in every one of those rooms, and it is changing how the work gets done.</p>
+    <p>AI is a computer system that learns patterns from huge amounts of information, then uses those patterns to help with real tasks. In fashion, that means AI can study millions of photos, sales numbers, and search trends, and then help a designer sketch faster, help a forecaster predict better, and help a store guess exactly what you might want to buy next.</p>
+    <p>Notice the word we keep using: <strong>help</strong>. AI is not replacing the four paths you just learned about. It is becoming the most powerful tool inside each of them, and the people who know how to use it are becoming the most valuable people in the building.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="pullquote fade">AI is not the designer. It is the fastest assistant a designer has ever had.</div>
+</div>
+
+<section class="wrap">
+  <div class="prose fade">
+    <h2>Then vs. now: tap to see the switch</h2>
+    <p>Here are four everyday fashion jobs. Each card shows how it worked before AI. <strong>Tap any card</strong> to see how the same job works today.</p>
+  </div>
+  <div class="flips fade" style="margin-top:22px;">
+    <button class="flip" type="button"
+      data-then-tag="Then" data-then-e="&#9999;&#65039;" data-then-h="Sketching a collection"
+      data-then-p="A designer drew every idea by hand, one at a time. Exploring 100 ideas could take weeks."
+      data-now-e="&#9889;" data-now-h="Sketching with AI"
+      data-now-p="The designer describes an idea and AI drafts dozens of versions in minutes. The designer still picks, refines, and decides. Taste is the job now.">
+      <span class="fe">&#9999;&#65039;</span>
+      <span class="tag then">Then</span>
+      <h3>Sketching a collection</h3>
+      <p>A designer drew every idea by hand, one at a time. Exploring 100 ideas could take weeks.</p>
+      <span class="hint">Tap to see now &rarr;</span>
+    </button>
+    <button class="flip" type="button"
+      data-then-tag="Then" data-then-e="&#128302;" data-then-h="Predicting trends"
+      data-then-p="Forecasters traveled to fashion capitals and trusted their gut about what was coming next."
+      data-now-e="&#128202;" data-now-h="Predicting with AI"
+      data-now-p="AI scans millions of posts, searches, and sales in real time. Forecasters now interpret the signals instead of hunting for them. Gut plus data beats gut alone.">
+      <span class="fe">&#128302;</span>
+      <span class="tag then">Then</span>
+      <h3>Predicting trends</h3>
+      <p>Forecasters traveled to fashion capitals and trusted their gut about what was coming next.</p>
+      <span class="hint">Tap to see now &rarr;</span>
+    </button>
+    <button class="flip" type="button"
+      data-then-tag="Then" data-then-e="&#128085;" data-then-h="Finding your size"
+      data-then-p="Shoppers guessed their size, ordered three, and returned two. Returns cost stores billions."
+      data-now-e="&#128241;" data-now-h="Fitting with AI"
+      data-now-p="AI-powered try-on tools predict your fit from a photo or your past orders. Fewer returns, less waste, happier shoppers.">
+      <span class="fe">&#128085;</span>
+      <span class="tag then">Then</span>
+      <h3>Finding your size</h3>
+      <p>Shoppers guessed their size, ordered three, and returned two. Returns cost stores billions.</p>
+      <span class="hint">Tap to see now &rarr;</span>
+    </button>
+    <button class="flip" type="button"
+      data-then-tag="Then" data-then-e="&#128230;" data-then-h="Guessing what to make"
+      data-then-p="Brands produced huge batches and hoped. Wrong guesses meant mountains of unsold clothes."
+      data-now-e="&#127793;" data-now-h="Making with AI"
+      data-now-p="AI demand forecasts help brands make closer to the right amount. Less overproduction means less waste, which fashion badly needs.">
+      <span class="fe">&#128230;</span>
+      <span class="tag then">Then</span>
+      <h3>Guessing what to make</h3>
+      <p>Brands produced huge batches and hoped. Wrong guesses meant mountains of unsold clothes.</p>
+      <span class="hint">Tap to see now &rarr;</span>
+    </button>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="prose fade">
+    <h2>Why this matters for you</h2>
+    <p>Here is the honest truth about every industry AI touches: the tool does not take the opportunity, it <strong>moves</strong> it. The opportunity moves toward people who understand both sides, the fashion side and the AI side. Right now, that combination is rare. Most fashion veterans did not grow up with AI. Most tech people do not understand fashion. Someone who knows both is exactly what this trillion-dollar industry is searching for.</p>
+    <p>That someone could be you, and you are starting at the perfect time.</p>
+  </div>
+</section>
+
+<section class="closer wrap">
+  <div class="fade">
+    <div class="divider"></div>
+    <p class="big">Section 2 starts now: <em>how AI is rewiring fashion,</em> one job at a time.</p>
+    <p>In the coming articles, we will go inside AI-powered design, trend prediction, virtual try-ons, and more. You already know the four doors into fashion. Now let's look at the technology transforming what is behind them.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var fades = document.querySelectorAll('.fade');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    fades.forEach(function (el) { io.observe(el); });
+  } else {
+    fades.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  document.querySelectorAll('.flip').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var flipped = card.classList.toggle('flipped');
+      var e = card.querySelector('.fe');
+      var tag = card.querySelector('.tag');
+      var h = card.querySelector('h3');
+      var p = card.querySelector('p');
+      var hint = card.querySelector('.hint');
+      if (flipped) {
+        e.innerHTML = card.getAttribute('data-now-e');
+        tag.textContent = 'Now';
+        tag.className = 'tag now';
+        h.textContent = card.getAttribute('data-now-h');
+        p.textContent = card.getAttribute('data-now-p');
+        hint.innerHTML = '&larr; Tap to see then';
+      } else {
+        e.innerHTML = card.getAttribute('data-then-e');
+        tag.textContent = 'Then';
+        tag.className = 'tag then';
+        h.textContent = card.getAttribute('data-then-h');
+        p.textContent = card.getAttribute('data-then-p');
+        hint.innerHTML = 'Tap to see now &rarr;';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
