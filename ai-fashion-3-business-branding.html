@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &times; Branding: Build a Fashion Brand Before Lunch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #2A0B47;
+  --purple: #5B1E9E;
+  --violet: #7B2FBE;
+  --gold: #E9A23B;
+  --paper: #FFFFFF;
+  --mist: #F6F2FB;
+  --line: #E8DFF5;
+  --green: #1E9E5B;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 18px;
+}
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+/* Hero */
+.hero { padding: 68px 0 40px; text-align: center; }
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--violet); margin-bottom: 20px;
+}
+.eyebrow .dot { color: var(--gold); }
+.hero-emoji { font-size: 52px; display: block; margin-bottom: 14px; }
+h1 {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 1.08; letter-spacing: -0.015em;
+  margin-bottom: 20px;
+}
+h1 em { font-style: italic; color: var(--violet); }
+.lede { font-size: 20px; max-width: 620px; margin: 0 auto; color: #4A3865; }
+.readtime {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px; font-weight: 500;
+  color: var(--purple); background: var(--mist);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 16px;
+}
+
+/* Quick facts band */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px; max-width: 780px; margin: 40px auto 8px;
+}
+.fact {
+  background: var(--mist); border: 1.5px solid var(--line);
+  border-radius: 18px; padding: 22px 16px 18px; text-align: center;
+}
+.fact-num {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(24px, 3.6vw, 34px);
+  color: var(--purple); line-height: 1.15; margin-bottom: 6px;
+}
+.fact-num .accent { color: var(--gold); }
+.fact-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #6B5A85; line-height: 1.5;
+}
+
+/* Sections */
+section { padding: 30px 0; }
+h2 {
+  font-family: 'Fraunces', serif; font-weight: 700;
+  font-size: clamp(26px, 4vw, 34px);
+  line-height: 1.2; margin-bottom: 18px;
+}
+p + p { margin-top: 18px; }
+.prose { max-width: 680px; margin: 0 auto; }
+strong { color: var(--purple); }
+.pullquote {
+  max-width: 680px; margin: 38px auto;
+  padding: 6px 0 6px 26px;
+  border-left: 4px solid var(--gold);
+  font-family: 'Fraunces', serif;
+  font-size: clamp(21px, 3vw, 26px);
+  font-weight: 600; line-height: 1.4; color: var(--purple);
+}
+
+/* Role cards */
+.roles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 14px; max-width: 780px; margin: 8px auto 0;
+}
+.rolecard {
+  background: #fff; border: 1.5px solid var(--line);
+  border-radius: 18px; padding: 22px 20px;
+  transition: transform 0.18s, border-color 0.2s, box-shadow 0.2s;
+}
+.rolecard:hover {
+  transform: translateY(-3px);
+  border-color: var(--violet);
+  box-shadow: 0 10px 26px rgba(91,30,158,0.10);
+}
+.rolecard .re { font-size: 28px; display: block; margin-bottom: 10px; }
+.rolecard h3 {
+  font-family: 'Fraunces', serif; font-weight: 700;
+  font-size: 19px; margin-bottom: 6px; color: var(--purple);
+}
+.rolecard p { font-size: 15px; line-height: 1.6; color: #4A3865; }
+
+/* Dark interactive shell */
+.sim {
+  background: var(--ink); color: #F3ECFC;
+  border-radius: 22px; padding: 42px 26px 38px;
+  margin: 42px 0; text-align: center;
+}
+.sim-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px;
+}
+.sim h2 { color: #fff; margin-bottom: 8px; }
+.sim-sub { color: #C9B4E8; max-width: 540px; margin: 0 auto 26px; font-size: 16.5px; }
+.sim .card {
+  max-width: 560px; margin: 0 auto;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  border-radius: 18px; padding: 24px;
+}
+.sim button.choice {
+  font: inherit; font-size: 16px;
+  display: block; width: 100%;
+  text-align: left;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.22);
+  border-radius: 14px;
+  color: #EFE4FB; padding: 14px 16px;
+  cursor: pointer; margin-top: 10px;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.sim button.choice:hover { border-color: var(--gold); transform: translateY(-1px); }
+.sim button.choice:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.sim button.choice.on { background: rgba(123,47,190,0.4); border-color: var(--gold); }
+.sim .verdict {
+  display: none; margin-top: 22px;
+  padding: 18px 20px;
+  background: rgba(233,162,59,0.14);
+  border: 1.5px solid var(--gold);
+  border-radius: 16px;
+  font-size: 15.5px; line-height: 1.6; color: #EFE4FB;
+  text-align: left;
+}
+.sim .verdict.show { display: block; animation: pop 0.45s ease; }
+.sim .verdict h3 {
+  font-family: 'Fraunces', serif; font-size: 20px;
+  color: var(--gold); margin-bottom: 6px;
+}
+.pill-btn {
+  font: inherit; font-weight: 700; font-size: 16px;
+  margin-top: 20px; padding: 12px 28px;
+  border-radius: 999px; border: none;
+  background: linear-gradient(90deg, var(--purple), var(--violet));
+  color: #fff; cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+.pill-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(91,30,158,0.35); }
+.pill-btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+@keyframes pop {
+  0% { transform: scale(0.96); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Light quiz shell */
+.quiz {
+  background: var(--mist); border: 1.5px solid var(--line);
+  border-radius: 22px; padding: 38px 26px 42px;
+  margin: 42px 0; text-align: center;
+}
+.quiz .sim-label { color: var(--violet); }
+.quiz-q { font-size: 18px; max-width: 560px; margin: 6px auto 24px; color: #4A3865; }
+.quiz-opts { display: grid; gap: 12px; max-width: 560px; margin: 0 auto; }
+.opt {
+  background: #fff; border: 1.5px solid var(--line);
+  border-radius: 14px; padding: 15px 18px;
+  cursor: pointer; font: inherit; font-size: 16.5px;
+  text-align: left; color: var(--ink);
+  transition: border-color 0.2s, transform 0.15s;
+}
+.opt:hover { border-color: var(--violet); transform: translateY(-1px); }
+.opt:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+.opt.right { border-color: var(--green); background: #EAF9F1; }
+.opt.wrong { border-color: #D0455A; background: #FDEEF1; opacity: 0.85; }
+.quiz-fb {
+  display: none; max-width: 560px;
+  margin: 20px auto 0; padding: 16px 20px;
+  border-radius: 14px; font-size: 15.5px;
+  line-height: 1.6; text-align: left;
+}
+.quiz-fb.show { display: block; animation: pop 0.4s ease; }
+.quiz-fb.good { background: #EAF9F1; border: 1.5px solid var(--green); }
+.quiz-fb.bad { background: #FFF6E8; border: 1.5px solid var(--gold); }
+
+/* Path meta band (salary + school) */
+.meta-band {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px; max-width: 680px; margin: 8px auto 0;
+}
+.meta {
+  border-radius: 18px; padding: 24px 22px;
+  background: linear-gradient(135deg, var(--purple), var(--violet));
+  color: #fff;
+}
+.meta.alt { background: linear-gradient(135deg, #B5761F, var(--gold)); }
+.meta .m-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  opacity: 0.85; margin-bottom: 6px;
+}
+.meta .m-big {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(26px, 4vw, 34px); line-height: 1.1;
+}
+.meta .m-note { font-size: 14px; margin-top: 8px; opacity: 0.92; line-height: 1.5; }
+
+/* Closer */
+.closer { text-align: center; padding: 50px 0 78px; }
+.closer .big {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(27px, 4.4vw, 40px);
+  line-height: 1.15; max-width: 640px; margin: 0 auto 18px;
+}
+.closer .big em { font-style: italic; color: var(--violet); }
+.closer p { max-width: 540px; margin: 0 auto; color: #4A3865; }
+.divider { width: 64px; height: 4px; border-radius: 2px; background: var(--gold); margin: 0 auto 28px; }
+
+/* Fade */
+.fade { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } }
+
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  .hero { padding: 50px 0 30px; }
+  .sim, .quiz { padding: 30px 18px 34px; border-radius: 18px; }
+}
+
+.builder { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 740px; margin: 0 auto; align-items: start; }
+@media (max-width: 660px) { .builder { grid-template-columns: 1fr; } }
+.controls { text-align: left; }
+.step-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); margin: 16px 0 8px;
+}
+.step-label:first-child { margin-top: 0; }
+.pickrow { display: flex; flex-wrap: wrap; gap: 7px; }
+.pick {
+  font: inherit; font-size: 13.5px; font-weight: 500;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.07);
+  color: #EFE4FB; border-radius: 999px;
+  padding: 8px 14px; cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.pick:hover { border-color: var(--gold); }
+.pick:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.pick.on { background: var(--violet); border-color: var(--violet); color: #fff; }
+
+/* Live brand card */
+.brand-card {
+  border-radius: 18px; overflow: hidden;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  text-align: left; background: #fff; color: var(--ink);
+  transition: all 0.4s;
+}
+.bc-banner {
+  padding: 26px 22px 20px;
+  color: #fff; transition: background 0.4s;
+}
+.bc-logo {
+  width: 54px; height: 54px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif; font-weight: 900; font-size: 26px;
+  background: rgba(255,255,255,0.2);
+  border: 2px solid rgba(255,255,255,0.6);
+  margin-bottom: 12px; transition: border-radius 0.4s;
+}
+.bc-logo.round { border-radius: 50%; }
+.bc-logo.sharp { border-radius: 4px; }
+.bc-name { font-family: 'Fraunces', serif; font-weight: 900; font-size: 26px; line-height: 1.1; }
+.bc-tagline { font-size: 13.5px; opacity: 0.92; margin-top: 6px; font-style: italic; }
+.bc-body { padding: 18px 22px 20px; }
+.bc-row { margin-bottom: 12px; }
+.bc-k {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10.5px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: #6B5A85; margin-bottom: 2px;
+}
+.bc-v { font-size: 14.5px; line-height: 1.5; }
+.bc-caption {
+  background: var(--mist); border: 1px solid var(--line);
+  border-radius: 12px; padding: 12px 14px;
+  font-size: 13.5px; line-height: 1.5;
+}
+.pitch-wrap { max-width: 520px; margin: 22px auto 0; }
+.pitch-labels {
+  display: flex; justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px; margin-bottom: 8px; color: #C9B4E8;
+}
+.pitch-bar { height: 14px; background: rgba(255,255,255,0.12); border-radius: 999px; overflow: hidden; }
+.pitch-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--violet), var(--gold));
+  border-radius: 999px;
+  transition: width 0.6s cubic-bezier(.22,1,.36,1);
+}
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <div class="eyebrow fade">AI in Fashion <span class="dot">&bull;</span> Part 3 of 3 <span class="dot">&bull;</span> Business &amp; Branding</div>
+  <span class="hero-emoji fade">&#128200;</span>
+  <h1 class="fade">Build a Fashion Brand <em>Before Lunch</em></h1>
+  <p class="lede fade">A brand identity used to take an agency and months of work. Today, one founder with AI tools can draft the whole thing in an afternoon. Including you. Right now.</p>
+  <div class="readtime fade">&#9201; 3 minute read</div>
+</header>
+
+<section class="wrap">
+  <div class="prose fade">
+    <h2>The billion-dollar shortcut</h2>
+    <p>Every fashion brand you love is really a stack of decisions: a name, a logo, a customer, a voice, a story. Getting those right used to require hiring experts for each piece. Now AI collapses the distance. Founders use it to <strong>design logos and craft marketing content</strong>, to <strong>brainstorm brand ideas, captions, and pitch decks</strong>, and ultimately to <strong>build a whole brand identity</strong>, testing dozens of directions before spending a single dollar.</p>
+    <p>Notice what AI is really doing here: it is not making the brand. It is making the <strong>drafts</strong>. The founder still chooses the direction, judges what feels right, and rejects what feels fake. That is exactly the game you are about to play. Your job: launch a student fashion brand, make four decisions, and watch your brand kit assemble itself in real time.</p>
+  </div>
+</section>
+
+<!-- ============ BRAND BUILDER ============ -->
+<div class="wrap">
+  <div class="sim fade">
+    <div class="sim-label">Brand Builder</div>
+    <h2>Launch Your Label</h2>
+    <p class="sim-sub">Four decisions. One brand. The card on the right is your live brand kit, exactly the kind of draft founders now generate with AI. Every choice reshapes it.</p>
+
+    <div class="builder">
+      <div class="controls">
+        <div class="step-label">1 &middot; Your brand name style</div>
+        <div class="pickrow" data-g="name">
+          <button class="pick on" type="button" data-v="NOVA THREAD">Bold one-liner</button>
+          <button class="pick" type="button" data-v="Golden Hour Studio">Dreamy &amp; soft</button>
+          <button class="pick" type="button" data-v="FL4SH">Techy &amp; edgy</button>
+        </div>
+        <div class="step-label">2 &middot; Your customer</div>
+        <div class="pickrow" data-g="customer">
+          <button class="pick on" type="button" data-v="students who thrift and remix their own style">Thrift remixers</button>
+          <button class="pick" type="button" data-v="athletes who want style that moves with them">Athletes</button>
+          <button class="pick" type="button" data-v="artists who treat every outfit like a canvas">Artists</button>
+        </div>
+        <div class="step-label">3 &middot; Your logo shape</div>
+        <div class="pickrow" data-g="logo">
+          <button class="pick on" type="button" data-v="soft">Soft circle</button>
+          <button class="pick" type="button" data-v="round">Full round</button>
+          <button class="pick" type="button" data-v="sharp">Sharp edge</button>
+        </div>
+        <div class="step-label">4 &middot; Your brand voice</div>
+        <div class="pickrow" data-g="voice">
+          <button class="pick on" type="button" data-v="hype">Hype &amp; loud</button>
+          <button class="pick" type="button" data-v="warm">Warm &amp; real</button>
+          <button class="pick" type="button" data-v="cool">Cool &amp; minimal</button>
+        </div>
+      </div>
+
+      <div class="brand-card" id="brandCard">
+        <div class="bc-banner" id="bcBanner">
+          <div class="bc-logo" id="bcLogo">N</div>
+          <div class="bc-name" id="bcName">NOVA THREAD</div>
+          <div class="bc-tagline" id="bcTagline"></div>
+        </div>
+        <div class="bc-body">
+          <div class="bc-row">
+            <div class="bc-k">Made for</div>
+            <div class="bc-v" id="bcCustomer"></div>
+          </div>
+          <div class="bc-row">
+            <div class="bc-k">First AI-drafted caption</div>
+            <div class="bc-caption" id="bcCaption"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pitch-wrap">
+      <div class="pitch-labels"><span>Brand kit completeness</span><span id="pitchPct">25%</span></div>
+      <div class="pitch-bar"><div class="pitch-fill" id="pitchFill" style="width:25%"></div></div>
+    </div>
+
+    <div class="verdict" id="brandVerdict"></div>
+  </div>
+</div>
+
+<!-- ============ QUIZ ============ -->
+<div class="wrap">
+  <div class="quiz fade">
+    <div class="sim-label">Founder Check</div>
+    <h2>Spot the smart founder move</h2>
+    <p class="quiz-q">An AI writes your brand 30 slogan options in one minute. What does a smart founder do next?</p>
+    <div class="quiz-opts" id="quizOpts">
+      <button class="opt" type="button" data-a="0">Use the first one, the AI knows best</button>
+      <button class="opt" type="button" data-a="1">Read all 30, shortlist 3 that truly sound like the brand, then test them on real people</button>
+      <button class="opt" type="button" data-a="0">Ignore all 30 and start over without AI</button>
+    </div>
+    <div class="quiz-fb" id="quizFb"></div>
+  </div>
+</div>
+
+<section class="wrap">
+  <div class="prose fade">
+    <h2>The pattern, one last time</h2>
+    <p>Across all three articles, one pattern kept showing up. AI drafted the sketches; the designer chose. AI flagged the signals; the forecaster judged. AI wrote the slogans; the founder decided. The technology multiplies your speed, but <strong>your judgment sets the direction</strong>. In a world where everyone has the same AI tools, judgment is the difference. And judgment is exactly what you have been practicing this whole series.</p>
+  </div>
+</section>
+
+<section class="closer wrap">
+  <div class="fade">
+    <div class="divider"></div>
+    <p class="big">The tools are on the table. <em>The taste is yours.</em></p>
+    <p>You have now directed AI design, called trends like a forecaster, and drafted a brand kit like a founder. That combination, fashion sense plus AI fluency, is exactly what this trillion-dollar industry is hiring for. Keep practicing. You are early, and early is everything.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var fades = document.querySelectorAll('.fade');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    fades.forEach(function (el) { io.observe(el); });
+  } else {
+    fades.forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+
+(function () {
+  var state = { name: 'NOVA THREAD', customer: 'students who thrift and remix their own style', logo: 'soft', voice: 'hype' };
+  var touched = { name: true, customer: false, logo: false, voice: false };
+  var banners = {
+    'NOVA THREAD': 'linear-gradient(135deg, #5B1E9E, #7B2FBE)',
+    'Golden Hour Studio': 'linear-gradient(135deg, #B5761F, #E9A23B)',
+    'FL4SH': 'linear-gradient(135deg, #2A0B47, #5B1E9E)'
+  };
+  var taglines = {
+    hype: { 'NOVA THREAD': 'Wear the moment.', 'Golden Hour Studio': 'Glow louder.', 'FL4SH': 'Blink and you missed it.' },
+    warm: { 'NOVA THREAD': 'Made by us, for all of us.', 'Golden Hour Studio': 'Soft light, real people.', 'FL4SH': 'Fast style, familiar feeling.' },
+    cool: { 'NOVA THREAD': 'Less noise. More thread.', 'Golden Hour Studio': 'Quiet gold.', 'FL4SH': 'Style at shutter speed.' }
+  };
+  var captions = {
+    hype: 'DROP DAY. &#128293; First 50 orders get the limited tag. You already know what to do. #LinkInBio',
+    warm: 'We made this one for the people who taught us style is personal. Hope it feels like yours. &#129505;',
+    cool: 'New piece. No caption needed.'
+  };
+  function pct() {
+    var n = 0;
+    for (var k in touched) if (touched[k]) n++;
+    return n * 25;
+  }
+  function render() {
+    var banner = document.getElementById('bcBanner');
+    banner.style.background = banners[state.name];
+    var logo = document.getElementById('bcLogo');
+    logo.textContent = state.name.charAt(0);
+    logo.className = 'bc-logo' + (state.logo === 'round' ? ' round' : state.logo === 'sharp' ? ' sharp' : '');
+    document.getElementById('bcName').textContent = state.name;
+    document.getElementById('bcTagline').textContent = '"' + taglines[state.voice][state.name] + '"';
+    document.getElementById('bcCustomer').textContent = 'For ' + state.customer + '.';
+    document.getElementById('bcCaption').innerHTML = captions[state.voice];
+    var p = pct();
+    document.getElementById('pitchFill').style.width = p + '%';
+    document.getElementById('pitchPct').textContent = p + '%';
+    if (p === 100) {
+      var v = document.getElementById('brandVerdict');
+      if (!v.classList.contains('show')) {
+        v.innerHTML = '<h3>\uD83C\uDF89 Brand kit complete</h3><p>Look at the card you just built: a name, a logo, a customer, a voice, and a first caption. Founders now use AI to draft exactly this in an afternoon, then spend their energy on the human part: making it feel true. Keep tapping options and watch how one changed decision changes the whole brand. That sensitivity is called brand instinct, and you clearly have some.</p>';
+        v.classList.add('show');
+      }
+    }
+  }
+  document.querySelectorAll('.pickrow').forEach(function (row) {
+    var g = row.getAttribute('data-g');
+    row.querySelectorAll('.pick').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        row.querySelectorAll('.pick').forEach(function (b) { b.classList.remove('on'); });
+        btn.classList.add('on');
+        state[g] = btn.getAttribute('data-v');
+        touched[g] = true;
+        render();
+      });
+    });
+  });
+  render();
+
+  var opts = document.querySelectorAll('#quizOpts .opt');
+  var fb = document.getElementById('quizFb');
+  var answered = false;
+  opts.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (answered) return;
+      answered = true;
+      if (btn.getAttribute('data-a') === '1') {
+        btn.classList.add('right');
+        fb.className = 'quiz-fb show good';
+        fb.innerHTML = '<strong>Founder brain unlocked.</strong> AI for volume, human judgment for the shortlist, real people for the test. That three-step loop is how modern brands actually work.';
+      } else {
+        btn.classList.add('wrong');
+        opts.forEach(function (o) { if (o.getAttribute('data-a') === '1') o.classList.add('right'); });
+        fb.className = 'quiz-fb show bad';
+        fb.innerHTML = '<strong>Not the move.</strong> Blindly trusting AI wastes your judgment, and refusing AI wastes your time. Smart founders do both: AI drafts 30, the human shortlists 3, real people pick the winner.';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

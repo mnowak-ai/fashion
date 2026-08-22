@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI &times; Design: Your New Creative Teammate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #2A0B47;
+  --purple: #5B1E9E;
+  --violet: #7B2FBE;
+  --gold: #E9A23B;
+  --paper: #FFFFFF;
+  --mist: #F6F2FB;
+  --line: #E8DFF5;
+  --green: #1E9E5B;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.7;
+  font-size: 18px;
+}
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+/* Hero */
+.hero { padding: 68px 0 40px; text-align: center; }
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--violet); margin-bottom: 20px;
+}
+.eyebrow .dot { color: var(--gold); }
+.hero-emoji { font-size: 52px; display: block; margin-bottom: 14px; }
+h1 {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(34px, 6vw, 56px);
+  line-height: 1.08; letter-spacing: -0.015em;
+  margin-bottom: 20px;
+}
+h1 em { font-style: italic; color: var(--violet); }
+.lede { font-size: 20px; max-width: 620px; margin: 0 auto; color: #4A3865; }
+.readtime {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12.5px; font-weight: 500;
+  color: var(--purple); background: var(--mist);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 16px;
+}
+
+/* Quick facts band */
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px; max-width: 780px; margin: 40px auto 8px;
+}
+.fact {
+  background: var(--mist); border: 1.5px solid var(--line);
+  border-radius: 18px; padding: 22px 16px 18px; text-align: center;
+}
+.fact-num {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(24px, 3.6vw, 34px);
+  color: var(--purple); line-height: 1.15; margin-bottom: 6px;
+}
+.fact-num .accent { color: var(--gold); }
+.fact-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #6B5A85; line-height: 1.5;
+}
+
+/* Sections */
+section { padding: 30px 0; }
+h2 {
+  font-family: 'Fraunces', serif; font-weight: 700;
+  font-size: clamp(26px, 4vw, 34px);
+  line-height: 1.2; margin-bottom: 18px;
+}
+p + p { margin-top: 18px; }
+.prose { max-width: 680px; margin: 0 auto; }
+strong { color: var(--purple); }
+.pullquote {
+  max-width: 680px; margin: 38px auto;
+  padding: 6px 0 6px 26px;
+  border-left: 4px solid var(--gold);
+  font-family: 'Fraunces', serif;
+  font-size: clamp(21px, 3vw, 26px);
+  font-weight: 600; line-height: 1.4; color: var(--purple);
+}
+
+/* Role cards */
+.roles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 14px; max-width: 780px; margin: 8px auto 0;
+}
+.rolecard {
+  background: #fff; border: 1.5px solid var(--line);
+  border-radius: 18px; padding: 22px 20px;
+  transition: transform 0.18s, border-color 0.2s, box-shadow 0.2s;
+}
+.rolecard:hover {
+  transform: translateY(-3px);
+  border-color: var(--violet);
+  box-shadow: 0 10px 26px rgba(91,30,158,0.10);
+}
+.rolecard .re { font-size: 28px; display: block; margin-bottom: 10px; }
+.rolecard h3 {
+  font-family: 'Fraunces', serif; font-weight: 700;
+  font-size: 19px; margin-bottom: 6px; color: var(--purple);
+}
+.rolecard p { font-size: 15px; line-height: 1.6; color: #4A3865; }
+
+/* Dark interactive shell */
+.sim {
+  background: var(--ink); color: #F3ECFC;
+  border-radius: 22px; padding: 42px 26px 38px;
+  margin: 42px 0; text-align: center;
+}
+.sim-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px;
+}
+.sim h2 { color: #fff; margin-bottom: 8px; }
+.sim-sub { color: #C9B4E8; max-width: 540px; margin: 0 auto 26px; font-size: 16.5px; }
+.sim .card {
+  max-width: 560px; margin: 0 auto;
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  border-radius: 18px; padding: 24px;
+}
+.sim button.choice {
+  font: inherit; font-size: 16px;
+  display: block; width: 100%;
+  text-align: left;
+  background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.22);
+  border-radius: 14px;
+  color: #EFE4FB; padding: 14px 16px;
+  cursor: pointer; margin-top: 10px;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+.sim button.choice:hover { border-color: var(--gold); transform: translateY(-1px); }
+.sim button.choice:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.sim button.choice.on { background: rgba(123,47,190,0.4); border-color: var(--gold); }
+.sim .verdict {
+  display: none; margin-top: 22px;
+  padding: 18px 20px;
+  background: rgba(233,162,59,0.14);
+  border: 1.5px solid var(--gold);
+  border-radius: 16px;
+  font-size: 15.5px; line-height: 1.6; color: #EFE4FB;
+  text-align: left;
+}
+.sim .verdict.show { display: block; animation: pop 0.45s ease; }
+.sim .verdict h3 {
+  font-family: 'Fraunces', serif; font-size: 20px;
+  color: var(--gold); margin-bottom: 6px;
+}
+.pill-btn {
+  font: inherit; font-weight: 700; font-size: 16px;
+  margin-top: 20px; padding: 12px 28px;
+  border-radius: 999px; border: none;
+  background: linear-gradient(90deg, var(--purple), var(--violet));
+  color: #fff; cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+.pill-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(91,30,158,0.35); }
+.pill-btn:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+@keyframes pop {
+  0% { transform: scale(0.96); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Light quiz shell */
+.quiz {
+  background: var(--mist); border: 1.5px solid var(--line);
+  border-radius: 22px; padding: 38px 26px 42px;
+  margin: 42px 0; text-align: center;
+}
+.quiz .sim-label { color: var(--violet); }
+.quiz-q { font-size: 18px; max-width: 560px; margin: 6px auto 24px; color: #4A3865; }
+.quiz-opts { display: grid; gap: 12px; max-width: 560px; margin: 0 auto; }
+.opt {
+  background: #fff; border: 1.5px solid var(--line);
+  border-radius: 14px; padding: 15px 18px;
+  cursor: pointer; font: inherit; font-size: 16.5px;
+  text-align: left; color: var(--ink);
+  transition: border-color 0.2s, transform 0.15s;
+}
+.opt:hover { border-color: var(--violet); transform: translateY(-1px); }
+.opt:focus-visible { outline: 3px solid var(--violet); outline-offset: 3px; }
+.opt.right { border-color: var(--green); background: #EAF9F1; }
+.opt.wrong { border-color: #D0455A; background: #FDEEF1; opacity: 0.85; }
+.quiz-fb {
+  display: none; max-width: 560px;
+  margin: 20px auto 0; padding: 16px 20px;
+  border-radius: 14px; font-size: 15.5px;
+  line-height: 1.6; text-align: left;
+}
+.quiz-fb.show { display: block; animation: pop 0.4s ease; }
+.quiz-fb.good { background: #EAF9F1; border: 1.5px solid var(--green); }
+.quiz-fb.bad { background: #FFF6E8; border: 1.5px solid var(--gold); }
+
+/* Path meta band (salary + school) */
+.meta-band {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px; max-width: 680px; margin: 8px auto 0;
+}
+.meta {
+  border-radius: 18px; padding: 24px 22px;
+  background: linear-gradient(135deg, var(--purple), var(--violet));
+  color: #fff;
+}
+.meta.alt { background: linear-gradient(135deg, #B5761F, var(--gold)); }
+.meta .m-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  opacity: 0.85; margin-bottom: 6px;
+}
+.meta .m-big {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(26px, 4vw, 34px); line-height: 1.1;
+}
+.meta .m-note { font-size: 14px; margin-top: 8px; opacity: 0.92; line-height: 1.5; }
+
+/* Closer */
+.closer { text-align: center; padding: 50px 0 78px; }
+.closer .big {
+  font-family: 'Fraunces', serif; font-weight: 900;
+  font-size: clamp(27px, 4.4vw, 40px);
+  line-height: 1.15; max-width: 640px; margin: 0 auto 18px;
+}
+.closer .big em { font-style: italic; color: var(--violet); }
+.closer p { max-width: 540px; margin: 0 auto; color: #4A3865; }
+.divider { width: 64px; height: 4px; border-radius: 2px; background: var(--gold); margin: 0 auto 28px; }
+
+/* Fade */
+.fade { opacity: 0; transform: translateY(22px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } }
+
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  .hero { padding: 50px 0 30px; }
+  .sim, .quiz { padding: 30px 18px 34px; border-radius: 18px; }
+}
+
+/* Prompt studio */
+.studio { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 720px; margin: 0 auto; align-items: start; }
+@media (max-width: 640px) { .studio { grid-template-columns: 1fr; } }
+.controls { text-align: left; }
+.pick-label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px; font-weight: 600;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); margin: 16px 0 8px;
+}
+.pick-label:first-child { margin-top: 0; }
+.pickrow { display: flex; flex-wrap: wrap; gap: 7px; }
+.pick {
+  font: inherit; font-size: 13.5px; font-weight: 500;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.07);
+  color: #EFE4FB; border-radius: 999px;
+  padding: 8px 14px; cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.pick:hover { border-color: var(--gold); }
+.pick:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+.pick.on { background: var(--violet); border-color: var(--violet); color: #fff; }
+.canvas-card {
+  background: rgba(255,255,255,0.06);
+  border: 1.5px solid rgba(255,255,255,0.18);
+  border-radius: 18px; padding: 18px;
+}
+.canvas-frame {
+  background: #fff; border-radius: 12px;
+  padding: 14px; margin-bottom: 12px;
+}
+.prompt-line {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11.5px; color: #C9B4E8;
+  line-height: 1.6; text-align: left;
+  min-height: 38px;
+}
+.prompt-line .pl { color: var(--gold); }
+.swatches { display: flex; gap: 6px; justify-content: center; margin-top: 10px; }
+.swatch { width: 26px; height: 26px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.5); transition: background 0.4s; }
+.gen-count {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; color: var(--gold); margin-top: 12px;
+}
+</style>
+</head>
+<body>
+
+<header class="hero wrap">
+  <div class="eyebrow fade">AI in Fashion <span class="dot">&bull;</span> Part 1 of 3 <span class="dot">&bull;</span> Design &amp; Creativity</div>
+  <span class="hero-emoji fade">&#127912;</span>
+  <h1 class="fade">Your New Creative Teammate <em>Works at the Speed of Type</em></h1>
+  <p class="lede fade">Designers used to need hours to explore one idea. Now they type a sentence and explore sixty. Welcome to the design studio, rebuilt.</p>
+  <div class="readtime fade">&#9201; 3 minute read</div>
+</header>
+
+<section class="wrap">
+  <div class="prose fade">
+    <h2>Words in, designs out</h2>
+    <p>The biggest change AI brought to fashion design sounds almost too simple: you can now <strong>turn plain text into fashion sketches</strong>. Type "a puffy silver jacket inspired by astronauts" and an AI image tool hands you a page of ideas in seconds. None of them are finished designs. All of them are starting points, and starting points used to be the slowest part of the job.</p>
+    <p>It goes beyond sketches. Designers use AI to <strong>generate patterns, textures, and mood boards</strong>, the collages of colors and images that set the feeling for a whole collection. And when it is time to show off the work, AI helps <strong>edit photos and videos for portfolios and reels</strong>, cleaning backgrounds and polishing clips that once required expensive software skills.</p>
+    <p>So what is left for the human? The most important part: <strong>direction</strong>. AI produces options. It does not know which option is good. That judgment, called taste, is now the designer's superpower, and directing AI well is a skill you can start practicing today. In fact, practice right now.</p>
+  </div>
+</section>
+
+<!-- ============ PROMPT STUDIO ============ -->
+<div class="wrap">
+  <div class="sim fade">
+    <div class="sim-label">Prompt Studio</div>
+    <h2>Direct the AI. Watch It Draw.</h2>
+    <p class="sim-sub">You are the designer. Build a text prompt with the chips below, and the "AI" sketches your concept live on the canvas. Every choice changes the result.</p>
+
+    <div class="studio">
+      <div class="controls">
+        <div class="pick-label">Garment</div>
+        <div class="pickrow" data-g="garment">
+          <button class="pick on" type="button" data-v="jacket">Jacket</button>
+          <button class="pick" type="button" data-v="dress">Dress</button>
+          <button class="pick" type="button" data-v="hoodie">Hoodie</button>
+        </div>
+        <div class="pick-label">Mood</div>
+        <div class="pickrow" data-g="mood">
+          <button class="pick on" type="button" data-v="electric">Electric</button>
+          <button class="pick" type="button" data-v="earthy">Earthy</button>
+          <button class="pick" type="button" data-v="royal">Royal</button>
+          <button class="pick" type="button" data-v="sunset">Sunset</button>
+        </div>
+        <div class="pick-label">Pattern</div>
+        <div class="pickrow" data-g="pattern">
+          <button class="pick on" type="button" data-v="solid">Solid</button>
+          <button class="pick" type="button" data-v="stripes">Stripes</button>
+          <button class="pick" type="button" data-v="dots">Dots</button>
+        </div>
+        <div class="pick-label">Era twist</div>
+        <div class="pickrow" data-g="era">
+          <button class="pick on" type="button" data-v="futuristic">Futuristic</button>
+          <button class="pick" type="button" data-v="90s throwback">90s throwback</button>
+          <button class="pick" type="button" data-v="vintage 70s">Vintage 70s</button>
+        </div>
+      </div>
+
+      <div class="canvas-card">
+        <div class="canvas-frame">
+          <svg id="sketch" viewBox="0 0 200 220" xmlns="http://www.w3.org/2000/svg" aria-label="AI sketch preview">
+            <defs>
+              <pattern id="pStripes" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                <rect width="14" height="14" fill="var(--c1, #7B2FBE)"/>
+                <rect width="7" height="14" fill="var(--c2, #E9A23B)"/>
+              </pattern>
+              <pattern id="pDots" width="16" height="16" patternUnits="userSpaceOnUse">
+                <rect width="16" height="16" fill="var(--c1, #7B2FBE)"/>
+                <circle cx="8" cy="8" r="3.4" fill="var(--c2, #E9A23B)"/>
+              </pattern>
+            </defs>
+            <g id="gJacket">
+              <path d="M60 40 L85 28 Q100 36 115 28 L140 40 L158 90 L138 100 L132 78 L132 190 L68 190 L68 78 L62 100 L42 90 Z" stroke="#2A0B47" stroke-width="4" stroke-linejoin="round"/>
+              <path d="M100 36 L100 190" stroke="#2A0B47" stroke-width="3"/>
+              <path d="M85 28 L95 46 L100 36 L105 46 L115 28" fill="none" stroke="#2A0B47" stroke-width="3" stroke-linejoin="round"/>
+            </g>
+            <g id="gDress" style="display:none">
+              <path d="M78 30 L122 30 L114 74 Q150 150 140 195 L60 195 Q50 150 86 74 Z" stroke="#2A0B47" stroke-width="4" stroke-linejoin="round"/>
+              <path d="M78 30 Q100 46 122 30" fill="none" stroke="#2A0B47" stroke-width="3"/>
+              <path d="M86 74 L114 74" stroke="#2A0B47" stroke-width="3"/>
+            </g>
+            <g id="gHoodie" style="display:none">
+              <path d="M64 60 Q64 30 100 30 Q136 30 136 60 L150 100 L134 108 L130 84 L130 192 L70 192 L70 84 L66 108 L50 100 Z" stroke="#2A0B47" stroke-width="4" stroke-linejoin="round"/>
+              <path d="M78 52 Q100 74 122 52" fill="none" stroke="#2A0B47" stroke-width="4"/>
+              <path d="M92 108 L92 140 M108 108 L108 140" stroke="#2A0B47" stroke-width="3"/>
+              <rect x="78" y="150" width="44" height="26" rx="6" fill="none" stroke="#2A0B47" stroke-width="3"/>
+            </g>
+            <text id="eraTag" x="100" y="213" text-anchor="middle" font-family="monospace" font-size="11" fill="#5B1E9E">futuristic</text>
+          </svg>
+        </div>
+        <div class="prompt-line" id="promptLine"></div>
+        <div class="swatches">
+          <div class="swatch" id="sw1"></div>
+          <div class="swatch" id="sw2"></div>
+          <div class="swatch" id="sw3"></div>
+        </div>
+        <div class="gen-count" id="genCount">Concepts generated: 1</div>
+      </div>
+    </div>
+
+    <div class="verdict show" id="studioNote" style="margin-top:24px;">
+      <h3>&#128161; What you are practicing</h3>
+      <p>Every chip you tap is a design decision. Notice how the same jacket feels totally different in "earthy vintage 70s" versus "electric futuristic." Real designers now do exactly this: describe, react, adjust, repeat. The AI drew it. <strong style="color:#E9A23B">You designed it.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ QUIZ ============ -->
+<div class="wrap">
+  <div class="quiz fade">
+    <div class="sim-label">Prompt Check</div>
+    <h2>Which designer gets better results?</h2>
+    <p class="quiz-q">Two designers ask an AI for sketch ideas. Who walks away with more useful designs?</p>
+    <div class="quiz-opts" id="quizOpts">
+      <button class="opt" type="button" data-a="0">Designer A types: "make a cool jacket"</button>
+      <button class="opt" type="button" data-a="1">Designer B types: "an oversized denim jacket, 90s skater style, faded sky blue, with oversized pockets"</button>
+    </div>
+    <div class="quiz-fb" id="quizFb"></div>
+  </div>
+</div>
+
+<section class="wrap">
+  <div class="prose fade">
+    <h2>The skill behind the tool</h2>
+    <p>You just discovered the quiet truth of AI design: <strong>the quality of what comes out depends on the quality of what goes in</strong>. Vague words get vague sketches. Specific, vivid direction gets sketches worth building. In the industry this is becoming its own respected skill, and students who practice it now will walk into studios already fluent.</p>
+  </div>
+</section>
+
+<section class="closer wrap">
+  <div class="fade">
+    <div class="divider"></div>
+    <p class="big">AI drafts fast. <em>Humans decide what is worth making.</em></p>
+    <p>You just directed your first AI design session. Next up in Part 2: how AI reads the entire internet to spot trends before they happen, and how you can play trend forecaster yourself.</p>
+  </div>
+</section>
+
+<script>
+(function () {
+  var fades = document.querySelectorAll('.fade');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    fades.forEach(function (el) { io.observe(el); });
+  } else {
+    fades.forEach(function (el) { el.classList.add('in'); });
+  }
+})();
+
+(function () {
+  var state = { garment: 'jacket', mood: 'electric', pattern: 'solid', era: 'futuristic' };
+  var moods = {
+    electric: { c1: '#7B2FBE', c2: '#E9A23B', c3: '#2A0B47' },
+    earthy: { c1: '#6B7A3A', c2: '#B5761F', c3: '#4A3B2A' },
+    royal: { c1: '#2A0B47', c2: '#5B1E9E', c3: '#E9A23B' },
+    sunset: { c1: '#D0455A', c2: '#E9A23B', c3: '#7B2FBE' }
+  };
+  var count = 1;
+  var groups = { garment: 'gJacket|gDress|gHoodie' };
+  function fillFor() {
+    var m = moods[state.mood];
+    if (state.pattern === 'stripes') return 'url(#pStripes)';
+    if (state.pattern === 'dots') return 'url(#pDots)';
+    return m.c1;
+  }
+  function render() {
+    var m = moods[state.mood];
+    var svg = document.getElementById('sketch');
+    svg.style.setProperty('--c1', m.c1);
+    svg.style.setProperty('--c2', m.c2);
+    document.getElementById('gJacket').style.display = state.garment === 'jacket' ? '' : 'none';
+    document.getElementById('gDress').style.display = state.garment === 'dress' ? '' : 'none';
+    document.getElementById('gHoodie').style.display = state.garment === 'hoodie' ? '' : 'none';
+    var active = { jacket: 'gJacket', dress: 'gDress', hoodie: 'gHoodie' }[state.garment];
+    var f = fillFor();
+    document.querySelectorAll('#' + active + ' path, #' + active + ' rect').forEach(function (el, i) {
+      if (el.getAttribute('fill') !== 'none') el.setAttribute('fill', f);
+    });
+    document.getElementById('eraTag').textContent = state.era;
+    document.getElementById('eraTag').setAttribute('fill', m.c2);
+    document.getElementById('sw1').style.background = m.c1;
+    document.getElementById('sw2').style.background = m.c2;
+    document.getElementById('sw3').style.background = m.c3;
+    document.getElementById('promptLine').innerHTML =
+      '<span class="pl">PROMPT:</span> "a ' + state.mood + ' ' + state.garment + ', ' + state.pattern + ' finish, ' + state.era + ' style"';
+    document.getElementById('genCount').textContent = 'Concepts generated: ' + count;
+  }
+  document.querySelectorAll('.pickrow').forEach(function (row) {
+    var g = row.getAttribute('data-g');
+    row.querySelectorAll('.pick').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        row.querySelectorAll('.pick').forEach(function (b) { b.classList.remove('on'); });
+        btn.classList.add('on');
+        state[g] = btn.getAttribute('data-v');
+        count++;
+        render();
+      });
+    });
+  });
+  render();
+
+  var opts = document.querySelectorAll('#quizOpts .opt');
+  var fb = document.getElementById('quizFb');
+  var answered = false;
+  opts.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (answered) return;
+      answered = true;
+      if (btn.getAttribute('data-a') === '1') {
+        btn.classList.add('right');
+        fb.className = 'quiz-fb show good';
+        fb.innerHTML = '<strong>Designer B, every time.</strong> Specific details give the AI something real to work with: era, color, fit, feature. You just used the same trick in the Prompt Studio. Vivid direction is the skill.';
+      } else {
+        btn.classList.add('wrong');
+        opts.forEach(function (o) { if (o.getAttribute('data-a') === '1') o.classList.add('right'); });
+        fb.className = 'quiz-fb show bad';
+        fb.innerHTML = '<strong>Tempting, but no.</strong> "Cool" means nothing to an AI, or to a factory. Designer B named the era, color, fit, and detail, so every sketch comes back usable. Specific beats vague, always.';
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>
